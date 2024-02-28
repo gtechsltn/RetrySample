@@ -5,6 +5,10 @@
 + I don't think it's a good idea to make the retry recursive - IMHO it would be better to create a loop and limit the retries so that you don't have an infite loop (ok, unless it was desired)
 + You really should use the using statement. In your current implementation the resources will be closed only if there was no execption - if an exception occurs the Closees won't be called. You also don't free the resources because you don't call the Dispose, you just close them and then create new resources on retry, this is a memory leak.
 
+# References
+
+https://codereview.stackexchange.com/questions/142653/simple-irc-bot-in-c
+
 ### Main.cs
 ```
 void Main()
